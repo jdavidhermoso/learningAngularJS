@@ -1,9 +1,13 @@
 angular.module('MyApp', [])
     .controller('FirstController', function ($scope, $http) {
         $scope.posts = [];
-    $http.get('http://jsonplaceholder.typicode.com/posts').then(function (response) {
-        $scope.posts = response.data;
-    }, function (err) {
-        console.log(err);
-    })
-});
+        $scope.isLoading = true;
+        $http.get('http://jsonplaceholder.typicode.com/posts').then(function (response) {
+            $scope.posts = response.data;
+            $scope.isLoading = false;
+
+        }, function (err) {
+            $scope.isLoading = false;
+            console.log(err);
+        })
+    });

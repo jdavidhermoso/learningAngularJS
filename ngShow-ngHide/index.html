@@ -11,7 +11,7 @@
             opacity: 1;
             max-height: auto;
             overflow: hidden;
-            transition: all 5s;
+            transition: all 2s;
         }
 
         .posts-controller.ng-hide {
@@ -22,7 +22,9 @@
     </style>
 </head>
 <body ng-controller="FirstController">
-<div class="posts-controller" ng-hide="posts.length === 0">
+<div ng-show="isLoading"> Loading...</div>
+<div ng-show="!isLoading && posts.length < 1"> There was an error!</div>
+<div class="posts-controller" ng-show="!isLoading">
     <div ng-repeat="post in posts">
         <h2> {{post.title}}</h2>
         <p>
