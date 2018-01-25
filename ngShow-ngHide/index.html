@@ -1,16 +1,35 @@
 <!doctype html lang="en">
-<html ng-app="mainModule">
+<html ng-app="MyApp">
 <head>
     <meta charset="UTF-8"/>
     <title> AngularJS Filters</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
     <script src="app.js"></script>
-</head>
-<body ng-controller="FiltersController">
+    <style>
+        .posts-controller {
+            opacity: 1;
+            max-height: auto;
+            overflow: hidden;
+            transition: all 5s;
+        }
 
-<p> {{randomText | toUpperCase}} </p>
-<p> {{object | json}} </p>
-<p> {{price | currency: ''}} </p>
+        .posts-controller.ng-hide {
+            opacity: 0;
+            max-height: 0 !important;
+            display: block !important;
+        }
+    </style>
+</head>
+<body ng-controller="FirstController">
+<div class="posts-controller" ng-hide="posts.length === 0">
+    <div ng-repeat="post in posts">
+        <h2> {{post.title}}</h2>
+        <p>
+            {{post.body}}
+        </p>
+    </div>
+</div>
+
 </body>
 </html>
