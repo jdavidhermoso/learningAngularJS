@@ -1,0 +1,16 @@
+<!doctype html lang="en">
+<html ng-app="mainModule">
+<head>
+    <meta charset="UTF-8"/>
+    <title> AngularJS Filters</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="FiltersController">
+
+<p> {{randomText | toUpperCase}} </p>
+<p> {{object | json}} </p>
+<p> {{price | currency: ''}} </p>
+</body>
+</html>
